@@ -32,5 +32,8 @@ Product Page
 Cart Page
 (./src/assets/screenshots/responsive.png)
 
+Live Demo:
+(https://gallery-three-theta.vercel.app/)
+
 
 
