@@ -2,7 +2,8 @@ import { useEffect } from "react"
 import { useAppDispatch, useAppSelector } from "../../redux/hooks"
 import { actGetProductById, productCleanUP } from "../../redux/ProductDetails/ProductDetailsSlice"
 import { useParams } from "react-router-dom"
-import Loading from "../../components/feedback/Loading/Loading"
+import Loading from "../../components/feedback/Loading/Loading";
+import { addToCart } from "../../redux/Cart/CartSlice";
 
 const ProductDetails = () => {
     const dispatch =useAppDispatch()
@@ -20,7 +21,7 @@ useEffect(()=>{
 },[dispatch , params])
   return (
     <Loading loading={loading} error={error}>
-        <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 m-auto">
+        <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 m-auto my-5">
             <div >
                 <img className="p-8 rounded-t-lg" src={product.image} alt={product.title} />
             </div>
@@ -38,7 +39,7 @@ useEffect(()=>{
                 </div>
                 <div className="flex flex-col items-center justify-between">
                     <span className="text-3xl font-bold text-gray-900 dark:text-white p-3">{`${product.price} EGP`}</span>
-                    <button  type="button" className="text-gray-900 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Add to Cart</button>
+                    <button onClick={()=>dispatch(addToCart(product.id))}  type="button" className="text-gray-900 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Add to Cart</button>
                 </div>
             </div>
         </div>
