@@ -4,6 +4,7 @@ import { actGetProductById, productCleanUP } from "../../redux/ProductDetails/Pr
 import { useParams } from "react-router-dom"
 import Loading from "../../components/feedback/Loading/Loading";
 import { addToCart } from "../../redux/Cart/CartSlice";
+import { Helmet } from "react-helmet";
 
 const ProductDetails = () => {
     const dispatch =useAppDispatch()
@@ -20,6 +21,10 @@ useEffect(()=>{
     
 },[dispatch , params])
   return (
+    <>
+    <Helmet>
+        <title>Products Details</title>
+    </Helmet>
     <Loading loading={loading} error={error}>
         <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 m-auto my-5">
             <div >
@@ -44,6 +49,7 @@ useEffect(()=>{
             </div>
         </div>
     </Loading>
+    </>
 
   )
 }

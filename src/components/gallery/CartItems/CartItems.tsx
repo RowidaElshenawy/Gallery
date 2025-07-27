@@ -7,11 +7,11 @@ const CartItems = ({title,image,price,id,quantity}:TCartProps) => {
   const dispatch =useAppDispatch()
   return (
     <div className="flex flex-col  md:flex-row justify-between border-b-2 border-gray-400 py-5 items-center">
-      <div className="md:w-[50%]  text-center border-gray-200 border-[2px] rounded">
-        <div className=" md:w-[400px] md:h-[500px]  m-auto">
+      <div className=" md:flex md:items-center md:justify-between md:w-[50%]  text-center p-2 border-gray-200 border-[2px] rounded">
+        <div className="h-[500px] md:w-[400px] md:h-[200px]  ">
             <img className="w-full h-full" src={image} alt={title} />
         </div>
-        <div className="text-[20px] font-serif">
+        <div className="text-[20px] font-serif md:w-[30%]">
             <h1>{title.split(" ").slice(0,2).join(" ")}</h1>
             <p>{`${price} EGP`}</p>
         </div>

@@ -26,7 +26,7 @@ const MainLayout = () => {
   return (
     <div className="h-screen flex flex-col bg-white text-black dark:bg-gray-900 dark:text-white transition-colors duration-300">
       <Header toggleDarkMode={() => setDarkMode(!darkMode)} darkMode={darkMode} />
-      <main className="mt-[100px] px-5 flex-1  dark:bg-gray-900">
+      <main className="mt-[100px]  px-5 flex-1  dark:bg-gray-900">
         <Outlet />
       </main>
       <Footer />
